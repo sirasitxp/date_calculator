@@ -55,7 +55,6 @@ def date_at_hour_offset(h_offset_):
       ('August',31),('September',30),('October',31),
       ('November',30),('December',31)]
 
-    month = months[month][0]
     days = (hour + h_offset_) //24 # It shows how many days
     week_day = (week_day+days) % 7 # How many weekdays
 
@@ -71,108 +70,59 @@ def date_at_hour_offset(h_offset_):
                 year += 1
                 days -= 366
             else:
-                if month is "January":
-                    if days > 31:
-                        days = days - 31
-                        month = "Febuary"                     
-                elif month is "Febuary":
-                    if days > 29:
-                        days = days - 29
-                        month = "March"
-                elif month is "March":
-                    if days > 31:
-                        days = days - 31
-                        month = "April"
-                elif month is "April":
-                    if days > 30:
-                        days = days - 30
-                        month = "May"
-                elif month is "May":
-                    if days > 31:
-                        days = days - 31
-                        month = "June"
-                elif month is "June":
-                    if days > 30:
-                        days = days - 30
-                        month = "July"
-                elif month is "July":
-                    if days > 31:
-                        days = days - 31
-                        month = "August"
-                elif month is "August":
-                    if days > 31:
-                        days = days - 31
-                        month = "September"
-                elif month is "September":
-                    if days > 30:
-                        days = days - 30
-                        month = "October"
-                    else:
-                        break
-                elif month is "October":
-                    if days > 31:
-                        days = days - 31
-                        month = "November"
-                elif month is "November":
-                    if days > 30:
-                        days = days - 30
-                        month = "December"
-                elif month is "December":
-                        break
-                else: 
-                    break
+                break
         else:         
             if days >= 365:
                 year+=1
                 days -= 365
             else:
-                if month is "January":
-                    if days > 31:
-                        days = days - 31
-                        month = "Febuary"
-                elif month is "Febuary":
-                    if days > 29:
-                        days = days - 29
-                        month = "March"
-                elif month is "March":
-                    if days > 31:
-                        days = days - 31
-                        month = "April"
-                elif month is "April":
-                    if days > 30:
-                        days = days - 30
-                        month = "May"
-                elif month is "May":
-                    if days > 31:
-                        days = days - 31
-                        month = "June"
-                elif month is "June":
-                    if days > 30:
-                        days = days - 30
-                        month = "July"
-                elif month is "July":
-                    if days > 31:
-                        days = days - 31
-                        month = "August"
-                elif month is "August":
-                    if days > 31:
-                        days = days - 31
-                        month = "September"
-                elif month is "September":
-                    if days > 30:
-                        days = days - 30
-                        month = "October"
+                if months[month][0] is "January":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "Febuary":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "March":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "April":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "May":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "June":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "July":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "August":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "September":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
                     else:
                         break
-                elif month is "October":
-                    if days > 31:
-                        days = days - 31
-                        month = "November"
-                elif month is "November":
-                    if days > 30:
-                        days = days - 30
-                        month = "December"
-                elif month is "December":
+                elif months[month][0] is "October":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "November":
+                    if days > months[month][1]:
+                        days -= months[month][1]
+                        month += 1
+                elif months[month][0] is "December":
                         break
                 else: 
                     break
@@ -180,7 +130,7 @@ def date_at_hour_offset(h_offset_):
 
 
 
-    result = f"In {hour + h_offset_} hours it will be {weekdays[week_day]}, {days} {month},{year} "
+    result = f"In {hour + h_offset_} hours it will be {weekdays[week_day]}, {days} {months[month][0]},{year} "
     print(result)
 
 
